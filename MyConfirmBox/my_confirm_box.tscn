@@ -1,0 +1,143 @@
+[gd_scene load_steps=10 format=3 uid="uid://b58l6s8au4xkm"]
+
+[ext_resource type="Texture2D" uid="uid://7c3q281nivw1" path="res://UI/Images/text_input.png" id="1_3xoim"]
+[ext_resource type="Script" path="res://MyConfirmBox/my_confirm_box.gd" id="1_skbgv"]
+[ext_resource type="Theme" uid="uid://coulpdn6akys8" path="res://UI/Themes/my_button_theme.tres" id="2_msoid"]
+[ext_resource type="Texture2D" uid="uid://4kepc0k3a5m0" path="res://UI/Images/close_button.png" id="4_rjo2a"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uk3s2"]
+texture = ExtResource("4_rjo2a")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bwgvi"]
+texture = ExtResource("4_rjo2a")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jlohb"]
+texture = ExtResource("4_rjo2a")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_np46l"]
+texture = ExtResource("4_rjo2a")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rx0ci"]
+texture = ExtResource("4_rjo2a")
+
+[node name="MyConfirmBox" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_skbgv")
+
+[node name="BlockerPanel" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.588235)
+
+[node name="MainPanel" type="NinePatchRect" parent="BlockerPanel"]
+custom_minimum_size = Vector2(800, 500)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.292
+anchor_top = 0.269
+anchor_right = 0.708
+anchor_bottom = 0.731
+offset_left = -0.640076
+offset_top = 49.48
+offset_right = 0.640015
+offset_bottom = -49.48
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_3xoim")
+region_rect = Rect2(0, 0, 397.988, 97.4857)
+patch_margin_left = 15
+patch_margin_top = 15
+patch_margin_right = 13
+patch_margin_bottom = 13
+
+[node name="HeaderLabel" type="Label" parent="BlockerPanel/MainPanel"]
+custom_minimum_size = Vector2(700, 150)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.063
+anchor_right = 0.937
+anchor_bottom = 0.3
+offset_left = -0.399975
+offset_right = 0.399902
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0.117647, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Are you sure? do you really wann know"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="QuestionLabel" type="Label" parent="BlockerPanel/MainPanel"]
+custom_minimum_size = Vector2(650, 200)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.094
+anchor_top = 0.3
+anchor_right = 0.906
+anchor_bottom = 0.7
+offset_left = -0.199982
+offset_top = 25.0
+offset_right = 0.199951
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.117647, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Are you sure you wish to delete Boohoasd? Hooka booka dooba doo able khsad lkhsdf lskhdf lshf slfhs flsdjhfs lfjhsd flsjhf slfjhs flskjfh sdklfjhs flksjhfs dlkfjhs fljshf sldjh "
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ButtonContainer" type="HBoxContainer" parent="BlockerPanel/MainPanel"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.72
+anchor_right = 1.0
+anchor_bottom = 0.92
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 75
+alignment = 1
+
+[node name="Button1" type="Button" parent="BlockerPanel/MainPanel/ButtonContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+theme = ExtResource("2_msoid")
+text = "Yes"
+
+[node name="Button2" type="Button" parent="BlockerPanel/MainPanel/ButtonContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+theme = ExtResource("2_msoid")
+text = "Yes"
+
+[node name="CloseButton" type="Button" parent="BlockerPanel/MainPanel"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.937
+anchor_top = -0.1
+anchor_right = 1.062
+anchor_bottom = 0.1
+offset_left = 0.399963
+offset_right = 0.399963
+grow_horizontal = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_uk3s2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_bwgvi")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_jlohb")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_np46l")
+theme_override_styles/focus = SubResource("StyleBoxTexture_rx0ci")
+
+[connection signal="pressed" from="BlockerPanel/MainPanel/ButtonContainer/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="BlockerPanel/MainPanel/ButtonContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="BlockerPanel/MainPanel/CloseButton" to="." method="_on_close_button_pressed"]

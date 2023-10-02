@@ -1,0 +1,95 @@
+[gd_scene load_steps=9 format=3 uid="uid://h8um227rr73b"]
+
+[ext_resource type="Theme" uid="uid://b8j56s5ea8gad" path="res://UI/Themes/my_header_label_theme.tres" id="1_ocou6"]
+[ext_resource type="Script" path="res://WhoseTurn/whose_turn.gd" id="1_yccxn"]
+[ext_resource type="Theme" uid="uid://coulpdn6akys8" path="res://UI/Themes/my_button_theme.tres" id="2_xsnse"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hj53k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y8lsv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ei32l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ttbb3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j34ew"]
+
+[node name="WhoseTurn" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yccxn")
+
+[node name="BackgroundRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TitleLabel" type="Label" parent="BackgroundRect"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.046
+anchor_right = 1.0
+anchor_bottom = 0.156
+offset_top = 0.319996
+offset_bottom = -18.48
+grow_horizontal = 2
+theme = ExtResource("1_ocou6")
+text = "It's Farting turn!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TurnButton" type="Button" parent="BackgroundRect"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.396
+anchor_top = 0.454
+anchor_right = 0.604
+anchor_bottom = 0.546
+offset_left = -0.320068
+offset_top = -0.320038
+offset_right = 0.319946
+offset_bottom = 0.320007
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_xsnse")
+
+[node name="BackButton" type="Button" parent="BackgroundRect"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.74
+anchor_top = 0.815
+anchor_right = 0.948
+anchor_bottom = 0.907
+offset_left = -0.800049
+offset_top = -0.200073
+offset_right = -0.160156
+offset_bottom = 0.439941
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0.117647, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.117647, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0.117647, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0.117647, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0.117647, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0.117647, 0, 1)
+theme_override_font_sizes/font_size = 53
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hj53k")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_y8lsv")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ei32l")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ttbb3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j34ew")
+text = "Back"
+
+[connection signal="pressed" from="BackgroundRect/TurnButton" to="." method="_on_turn_button_pressed"]
+[connection signal="pressed" from="BackgroundRect/BackButton" to="." method="_on_back_button_pressed"]

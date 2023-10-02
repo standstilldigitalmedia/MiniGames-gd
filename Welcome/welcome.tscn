@@ -1,0 +1,119 @@
+[gd_scene load_steps=6 format=3 uid="uid://cuigyom0ht8ae"]
+
+[ext_resource type="Script" path="res://Welcome/welcome.gd" id="1_lwytp"]
+[ext_resource type="Texture2D" uid="uid://7c3q281nivw1" path="res://UI/Images/text_input.png" id="2_fn5hb"]
+[ext_resource type="Theme" uid="uid://tw82dxw8fdl8" path="res://UI/Themes/my_line_edit_theme.tres" id="3_ymghi"]
+[ext_resource type="Theme" uid="uid://coulpdn6akys8" path="res://UI/Themes/my_button_theme.tres" id="4_q80ee"]
+[ext_resource type="Theme" uid="uid://c2g7bddv4u25f" path="res://UI/Themes/my_checkbox_theme.tres" id="5_0ygwq"]
+
+[node name="Welcome" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lwytp")
+
+[node name="MainBackground" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="NameInputBackground" type="TextureRect" parent="MainBackground"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.052
+anchor_top = 0.093
+anchor_right = 0.26
+anchor_bottom = 0.185
+offset_left = 0.159996
+offset_top = -0.440002
+offset_right = 0.799957
+offset_bottom = 0.199997
+texture = ExtResource("2_fn5hb")
+
+[node name="NameInput" type="LineEdit" parent="MainBackground/NameInputBackground"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.042
+anchor_top = 0.14
+anchor_right = 0.952
+anchor_bottom = 0.84
+offset_left = 0.199997
+offset_right = 0.199982
+theme = ExtResource("3_ymghi")
+placeholder_text = "Enter Name..."
+
+[node name="AddNameButton" type="Button" parent="MainBackground"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.052
+anchor_top = 0.231
+anchor_right = 0.26
+anchor_bottom = 0.324
+offset_left = 0.159996
+offset_top = 0.519989
+offset_right = 0.799957
+offset_bottom = 0.0799866
+theme = ExtResource("4_q80ee")
+text = "Add Name"
+
+[node name="NextTimeCheckBox" type="CheckBox" parent="MainBackground"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.74
+anchor_top = 0.093
+anchor_right = 0.948
+anchor_bottom = 0.185
+offset_left = -0.800049
+offset_top = -0.440002
+offset_right = -0.160156
+offset_bottom = 0.199997
+grow_horizontal = 0
+theme = ExtResource("5_0ygwq")
+text = "Don't Show"
+
+[node name="BeginButton" type="Button" parent="MainBackground"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.74
+anchor_top = 0.231
+anchor_right = 0.948
+anchor_bottom = 0.324
+offset_left = -0.800049
+offset_top = 0.519989
+offset_right = -0.160156
+offset_bottom = 0.0799866
+grow_horizontal = 0
+theme = ExtResource("4_q80ee")
+text = "Begin"
+
+[node name="NameButtonsContainer" type="GridContainer" parent="MainBackground"]
+custom_minimum_size = Vector2(1500, 500)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.109
+anchor_top = 0.444
+anchor_right = 0.891
+anchor_bottom = 0.907
+offset_left = 0.719986
+offset_top = 100.48
+offset_right = -0.720093
+offset_bottom = 0.439941
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/h_separation = 150
+theme_override_constants/v_separation = 100
+columns = 3
+
+[connection signal="pressed" from="MainBackground/AddNameButton" to="." method="_on_add_name_button_pressed"]
+[connection signal="pressed" from="MainBackground/BeginButton" to="." method="_on_begin_button_pressed"]
