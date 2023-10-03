@@ -1,11 +1,12 @@
-Button
-HBoxContainer
 Label
+VBoxContainer
+HBoxContainer
 ColorRect
+Timer
+Button
 GridContainer
 CheckBox
 LineEdit
 TextureRect
 NinePatchRect
-VBoxContainer
 Control

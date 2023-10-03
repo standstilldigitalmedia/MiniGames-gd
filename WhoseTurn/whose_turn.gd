@@ -7,7 +7,7 @@ const WELCOME_SCENE_PATH = "res://Welcome/welcome.tscn"
 
 func _ready():
 	var whose_turn = ConfigManager.get_whose_turn()
-	$BackgroundRect/TitleLabel.set_text(whose_turn + " gets to go first")
+	$BackgroundRect/TitleLabel.set_text(whose_turn + " gets to go first!")
 	$BackgroundRect/TurnButton.set_text(whose_turn)
 
 
