@@ -4,13 +4,11 @@ var overlay_scene: Node
 var flipping = true
 var choice : String
 
-func _ready():
-	ConfigManager.read_config()
-	var overlay_resource = load(ConfigManager.OVERLAY_SCENE_PATH)
-	overlay_scene = overlay_resource.instantiate()
-	overlay_scene.set_title_text("Flip A Coin")
-	add_child(overlay_scene)
-	$Background/FlippingCoin/Tails.hide()
+func player_wins(player_name):
+	var win_scene_resource = load(ConfigManager.WIN_SCENE_PATH)
+	var win_scene = win_scene_resource.instantiate()
+	win_scene.set_win_label(player_name)
+	add_child(win_scene)
 	
 func _on_flipping_timer_timeout():
 	if flipping:
@@ -56,9 +54,20 @@ func _on_tails_button_pressed():
 	$SlowDownTimer.start()
 
 func _on_next_turn_timer_timeout():
+	var winner = overlay_scene.check_for_winner()
+	if  winner != "":
+		player_wins(winner)
 	overlay_scene.switch_current_player()
 	$HeadsButton.set_disabled(false)
 	$TailsButton.set_disabled(false)
 	$FlippingTimer.wait_time = 0.3
 	$FlippingTimer.start()
 	flipping = true
+
+func _ready():
+	ConfigManager.read_config()
+	var overlay_resource = load(ConfigManager.OVERLAY_SCENE_PATH)
+	overlay_scene = overlay_resource.instantiate()
+	overlay_scene.set_title_text("Flip A Coin")
+	add_child(overlay_scene)
+	$Background/FlippingCoin/Tails.hide()

@@ -25,19 +25,24 @@ func get_current_player():
 		return 2
 	return 0
 	
+func check_for_winner():
+	var winner = ""
+	if int($Player1Container/PlayerScore.get_text()) > 1:
+		winner = get_player_1()
+	elif int($Player2Container/PlayerScore.get_text()) > 1:
+		winner = get_player_2()
+	
+	return winner
+	
 func increase_player_1_score():
 	var score = int($Player1Container/PlayerScore.get_text())
 	score += 1
 	$Player1Container/PlayerScore.set_text(str(score))
-	if score == 2:
-		print("Player1 Wins")
 		
 func increase_player_2_score():
 	var score = int($Player2Container/PlayerScore.get_text())
 	score += 1
 	$Player2Container/PlayerScore.set_text(str(score))
-	if score == 2:
-		print("Player2 Wins")	
 
 func _ready():
 	var player1 = ConfigManager.get_player_1()

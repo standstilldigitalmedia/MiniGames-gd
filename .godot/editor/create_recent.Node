@@ -1,10 +1,10 @@
-Timer
 Button
-Panel
 Label
+ColorRect
+Timer
+Panel
 TextureRect
 BoxContainer
-ColorRect
 Control
 Container
 VBoxContainer

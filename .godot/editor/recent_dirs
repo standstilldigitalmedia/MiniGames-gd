@@ -1,8 +1,9 @@
+res://WinScene
+res://UI/Themes
 res://FlipACoin
 res://OverlayPanel
 res://GamePicker
 res://WhoseTurn
-res://UI/Themes
 res://Welcome
 res://MyConfirmBox
 res://UI/Scenes
