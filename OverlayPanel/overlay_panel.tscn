@@ -4,9 +4,9 @@
 
 [node name="OverlayPanel" type="Control"]
 layout_mode = 3
-anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.336
+offset_bottom = 0.119965
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_f8paj")
@@ -17,10 +17,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.046
 anchor_right = 1.0
-anchor_bottom = 0.176
+anchor_bottom = 0.433
 offset_top = 0.319996
 offset_right = 3.0
-offset_bottom = -40.08
+offset_bottom = -133.371
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0.784314, 0.901961, 0.784314, 1)
 theme_override_font_sizes/font_size = 100
@@ -35,11 +35,11 @@ anchors_preset = -1
 anchor_left = 0.026
 anchor_top = 0.046
 anchor_right = 0.234
-anchor_bottom = 0.235
+anchor_bottom = 0.598
 offset_left = 0.079998
-offset_top = 0.319996
-offset_right = 0.719971
-offset_bottom = -3.80002
+offset_top = 0.302
+offset_right = 0.720001
+offset_bottom = -0.0740204
 
 [node name="PlayerName" type="Label" parent="Player1Container"]
 custom_minimum_size = Vector2(0, 50)
@@ -66,11 +66,11 @@ anchors_preset = -1
 anchor_left = 0.766
 anchor_top = 0.046
 anchor_right = 0.974
-anchor_bottom = 0.231
+anchor_bottom = 0.598
 offset_left = -0.720093
 offset_top = 0.319996
-offset_right = -0.0800781
-offset_bottom = 0.519989
+offset_right = -0.0802002
+offset_bottom = -132.701
 grow_horizontal = 0
 
 [node name="PlayerName" type="Label" parent="Player2Container"]
@@ -96,14 +96,14 @@ custom_minimum_size = Vector2(600, 200)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.344
-anchor_top = 0.185
+anchor_top = 0.5
 anchor_right = 0.656
-anchor_bottom = 0.374
+anchor_bottom = 1.0
 offset_left = -0.480042
-offset_top = 0.199997
+offset_top = -18.5
 offset_right = 0.47998
-offset_bottom = 0.0799866
 grow_horizontal = 2
+grow_vertical = 0
 
 [node name="CurrentPlayerLabel" type="Label" parent="CurrentPlayerContainer"]
 custom_minimum_size = Vector2(0, 50)

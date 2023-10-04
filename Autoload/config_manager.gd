@@ -15,6 +15,8 @@ const BUTTON_SCENE_PATH = "res://UI/Scenes/my_button.tscn"
 const CONFIRM_BOX_SCENE_PATH = "res://MyConfirmBox/my_confirm_box.tscn"
 const WHOSE_TURN_SCENE_PATH = "res://WhoseTurn/whose_turn.tscn"
 
+const OVERLAY_SCENE_PATH = "res://OverlayPanel/overlay_panel.tscn"
+
 const FLIP_A_COIN_PATH = "res://FlipACoin/flip_a_coin.tscn"
 const PICK_A_NUMBER_PATH = "res://PickANumber/pick_a_number.tscn"
 const ROCK_PAPER_SCISSORS_PATH = "res://RockPaperScissors/rock_paper_scissors.tscn"

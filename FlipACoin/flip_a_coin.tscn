@@ -1,6 +1,42 @@
-[gd_scene load_steps=2 format=3 uid="uid://cw7xvvo8nl50r"]
+[gd_scene load_steps=15 format=3 uid="uid://cw7xvvo8nl50r"]
 
 [ext_resource type="Script" path="res://FlipACoin/flip_a_coin.gd" id="1_nxtkx"]
+[ext_resource type="Texture2D" uid="uid://b4m8nmouwpbie" path="res://FlipACoin/Images/heads.png" id="2_ggpcd"]
+[ext_resource type="Texture2D" uid="uid://cvdbxa8is4h4" path="res://FlipACoin/Images/tails.png" id="3_5maqr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ddq83"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xhpgt"]
+texture = ExtResource("2_ggpcd")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xjv1w"]
+texture = ExtResource("2_ggpcd")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fkw7m"]
+texture = ExtResource("2_ggpcd")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n5hbl"]
+texture = ExtResource("2_ggpcd")
+modulate_color = Color(1, 1, 1, 0.392157)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q7gqn"]
+texture = ExtResource("2_ggpcd")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p7nld"]
+texture = ExtResource("3_5maqr")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iwu6p"]
+texture = ExtResource("3_5maqr")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8ldld"]
+texture = ExtResource("3_5maqr")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b3jap"]
+texture = ExtResource("3_5maqr")
+modulate_color = Color(1, 1, 1, 0.392157)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_un5ln"]
+texture = ExtResource("3_5maqr")
 
 [node name="FlipACoin" type="Control"]
 layout_mode = 3
@@ -10,3 +46,120 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nxtkx")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="FlippingCoin" type="Panel" parent="Background"]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.378
+anchor_top = 0.315
+anchor_right = 0.617
+anchor_bottom = 0.685
+offset_left = -0.76001
+offset_top = -0.200043
+offset_right = 0.36084
+offset_bottom = 0.199951
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ddq83")
+
+[node name="TitleLabel" type="Label" parent="Background/FlippingCoin"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 0.351
+offset_bottom = 0.00499725
+theme_override_font_sizes/font_size = 60
+text = "Call it in the air!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Heads" type="TextureRect" parent="Background/FlippingCoin"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.283
+anchor_top = 0.5
+anchor_right = 0.717
+anchor_bottom = 1.0
+offset_left = -0.180008
+offset_right = 0.179993
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_ggpcd")
+
+[node name="Tails" type="TextureRect" parent="Background/FlippingCoin"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.283
+anchor_top = 0.5
+anchor_right = 0.717
+anchor_bottom = 1.0
+offset_left = -0.180008
+offset_right = 0.179993
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_5maqr")
+
+[node name="HeadsButton" type="Button" parent="."]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.052
+anchor_top = 0.722
+anchor_right = 0.156
+anchor_bottom = 0.907
+offset_left = 0.159996
+offset_top = 0.239929
+offset_right = 0.47998
+offset_bottom = 0.439941
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_xhpgt")
+theme_override_styles/hover = SubResource("StyleBoxTexture_xjv1w")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_fkw7m")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_n5hbl")
+theme_override_styles/focus = SubResource("StyleBoxTexture_q7gqn")
+
+[node name="TailsButton" type="Button" parent="."]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.844
+anchor_top = 0.722
+anchor_right = 0.948
+anchor_bottom = 0.907
+offset_left = -0.480103
+offset_top = 0.239929
+offset_right = -0.160156
+offset_bottom = 0.439941
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_p7nld")
+theme_override_styles/hover = SubResource("StyleBoxTexture_iwu6p")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8ldld")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_b3jap")
+theme_override_styles/focus = SubResource("StyleBoxTexture_un5ln")
+
+[node name="FlippingTimer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[node name="SlowDownTimer" type="Timer" parent="."]
+
+[node name="NextTurnTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="pressed" from="HeadsButton" to="." method="_on_heads_button_pressed"]
+[connection signal="pressed" from="TailsButton" to="." method="_on_tails_button_pressed"]
+[connection signal="timeout" from="FlippingTimer" to="." method="_on_flipping_timer_timeout"]
+[connection signal="timeout" from="SlowDownTimer" to="." method="_on_slow_down_timer_timeout"]
+[connection signal="timeout" from="NextTurnTimer" to="." method="_on_next_turn_timer_timeout"]

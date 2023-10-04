@@ -1,13 +1,10 @@
 res://UI/Scenes/my_button.tscn
 res://UI/Themes/my_button_theme.tres
-res://GamePicker/game_picker.gd
 res://GamePicker/game_picker.tscn
 res://MyConfirmBox/my_confirm_box.tscn
 res://Welcome/welcome.tscn
 res://WhoseTurn/whose_turn.tscn
-res://Autoload/config_manager.gd
-res://WhoseTurn/whose_turn.gd
 res://OverlayPanel/overlay_panel.tscn
-res://OverlayPanel/overlay_panel.gd
 res://FlipACoin/flip_a_coin.tscn
-res://Welcome/welcome.gd
+res://FlipACoin/flip_a_coin.gd
+res://OverlayPanel/overlay_panel.gd

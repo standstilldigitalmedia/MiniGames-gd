@@ -12,13 +12,13 @@ var game_path = ""
 
 func get_game_path(rando):
 	if rando < 25:
-		game_path = ConfigManager.FLIP_A_COIN_PATH
+		game_path = ConfigManager.TIC_TAC_TOE_PATH
 	elif rando < 50:
 		game_path = ConfigManager.PICK_A_NUMBER_PATH
 	elif rando < 75:
-		game_path = ConfigManager.ROCK_PAPER_SCISSORS_PATH
+		game_path = ConfigManager.FLIP_A_COIN_PATH
 	else:
-		game_path = ConfigManager.TIC_TAC_TOE_PATH
+		game_path = ConfigManager.ROCK_PAPER_SCISSORS_PATH
 
 func get_end_y(rando):
 	if rando < 25:
@@ -35,7 +35,7 @@ func check_for_stop():
 		$Timer2.stop()
 		var rng = RandomNumberGenerator.new()
 		rng.seed = hash(Time.get_datetime_string_from_system())
-		var rando = 20 #rng.randf_range(1.0, 100.0)
+		var rando = 53 #rng.randf_range(1.0, 100.0)
 		stopping = true
 		final_position = Vector2(0, get_end_y(rando))
 		get_game_path(rando)
