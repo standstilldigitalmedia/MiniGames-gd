@@ -1,9 +1,5 @@
 extends Control
 
-const BUTTON_SCENE_PATH = "res://UI/Scenes/my_button.tscn"
-const CONFIRM_BOX_SCENE_PATH = "res://MyConfirmBox/my_confirm_box.tscn"
-const WHOSE_TURN_SCENE_PATH = "res://WhoseTurn/whose_turn.tscn"
-
 func enable_begin_button():
 	var split_array = ConfigManager.name_string_to_array()
 	if split_array.size() > 1:
@@ -12,7 +8,7 @@ func enable_begin_button():
 		$MainBackground/BeginButton.disabled = true
 
 func add_name_button(name_to_add):
-	var name_button_scene = load(BUTTON_SCENE_PATH)
+	var name_button_scene = load(ConfigManager.BUTTON_SCENE_PATH)
 	var name_button = name_button_scene.instantiate()
 	#name_button.custom_minimum_size = $BeginButton.custom_minimum_size
 	name_button.set_text(name_to_add)
@@ -31,7 +27,7 @@ func remove_name(name_to_remove):
 	enable_begin_button()
 			
 func confirm_remove_name(name_to_remove):
-	var confirm_box_scene = load(CONFIRM_BOX_SCENE_PATH)
+	var confirm_box_scene = load(ConfigManager.CONFIRM_BOX_SCENE_PATH)
 	var confirm_box = confirm_box_scene.instantiate()
 	confirm_box.set_confirm_box("Delete " + name_to_remove + "?","Are you sure you want to delete " + name_to_remove + "?","Yes", "No")
 	confirm_box.button1.connect(remove_name.bind(name_to_remove))
@@ -54,7 +50,7 @@ func _on_add_name_button_pressed():
 func _on_begin_button_pressed():
 	ConfigManager.set_next_time($MainBackground/NextTimeCheckBox.button_pressed)
 	ConfigManager.write_config()
-	get_tree().change_scene_to_file(WHOSE_TURN_SCENE_PATH)
+	get_tree().change_scene_to_file(ConfigManager.WHOSE_TURN_SCENE_PATH)
 	
 func _ready():
 	ConfigManager.read_config()

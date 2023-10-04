@@ -1,0 +1,124 @@
+[gd_scene load_steps=2 format=3 uid="uid://j27g5c6oidnw"]
+
+[ext_resource type="Script" path="res://OverlayPanel/overlay_panel.gd" id="1_f8paj"]
+
+[node name="OverlayPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f8paj")
+
+[node name="TitleLabel" type="Label" parent="."]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.046
+anchor_right = 1.0
+anchor_bottom = 0.176
+offset_top = 0.319996
+offset_right = 3.0
+offset_bottom = -40.08
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.784314, 0.901961, 0.784314, 1)
+theme_override_font_sizes/font_size = 100
+text = "Rock, Paper, Scissors"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player1Container" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.026
+anchor_top = 0.046
+anchor_right = 0.234
+anchor_bottom = 0.235
+offset_left = 0.079998
+offset_top = 0.319996
+offset_right = 0.719971
+offset_bottom = -3.80002
+
+[node name="PlayerName" type="Label" parent="Player1Container"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.784314, 0.901961, 0.784314, 1)
+theme_override_font_sizes/font_size = 50
+text = "Player1:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerScore" type="Label" parent="Player1Container"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.784314, 0.901961, 0.784314, 1)
+theme_override_font_sizes/font_size = 50
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player2Container" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.766
+anchor_top = 0.046
+anchor_right = 0.974
+anchor_bottom = 0.231
+offset_left = -0.720093
+offset_top = 0.319996
+offset_right = -0.0800781
+offset_bottom = 0.519989
+grow_horizontal = 0
+
+[node name="PlayerName" type="Label" parent="Player2Container"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.784314, 0.901961, 0.784314, 1)
+theme_override_font_sizes/font_size = 50
+text = "Player2:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerScore" type="Label" parent="Player2Container"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.784314, 0.901961, 0.784314, 1)
+theme_override_font_sizes/font_size = 50
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CurrentPlayerContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(600, 200)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.344
+anchor_top = 0.185
+anchor_right = 0.656
+anchor_bottom = 0.374
+offset_left = -0.480042
+offset_top = 0.199997
+offset_right = 0.47998
+offset_bottom = 0.0799866
+grow_horizontal = 2
+
+[node name="CurrentPlayerLabel" type="Label" parent="CurrentPlayerContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.784314, 0.901961, 0.784314, 1)
+theme_override_font_sizes/font_size = 50
+text = "Current Player:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CurrentPlayerNameLabel" type="Label" parent="CurrentPlayerContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.784314, 0.901961, 0.784314, 1)
+theme_override_font_sizes/font_size = 50
+text = "CurrentPlayer"
+horizontal_alignment = 1
+vertical_alignment = 1

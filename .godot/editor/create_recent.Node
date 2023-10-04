@@ -1,8 +1,8 @@
+Timer
 Label
 VBoxContainer
 HBoxContainer
 ColorRect
-Timer
 Button
 GridContainer
 CheckBox
