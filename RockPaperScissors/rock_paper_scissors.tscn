@@ -1,0 +1,185 @@
+[gd_scene load_steps=20 format=3 uid="uid://dfw64fqxnevqg"]
+
+[ext_resource type="Script" path="res://RockPaperScissors/rock_paper_scissors.gd" id="1_qj3ve"]
+[ext_resource type="Texture2D" uid="uid://bod82v66b1g11" path="res://RockPaperScissors/Images/Rock.png" id="2_o0evx"]
+[ext_resource type="Texture2D" uid="uid://jufld165k4gj" path="res://RockPaperScissors/Images/Paper.png" id="3_wh05l"]
+[ext_resource type="Texture2D" uid="uid://c2cvkqnqrkaed" path="res://RockPaperScissors/Images/Scissors.png" id="4_3utnw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5tlcg"]
+texture = ExtResource("2_o0evx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s30n7"]
+texture = ExtResource("2_o0evx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mtl0m"]
+texture = ExtResource("2_o0evx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5hp2d"]
+texture = ExtResource("2_o0evx")
+modulate_color = Color(1, 1, 1, 0.392157)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_av5rw"]
+texture = ExtResource("2_o0evx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_alcn5"]
+texture = ExtResource("3_wh05l")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bkn4e"]
+texture = ExtResource("3_wh05l")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_12hmm"]
+texture = ExtResource("3_wh05l")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_utvso"]
+texture = ExtResource("3_wh05l")
+modulate_color = Color(1, 1, 1, 0.392157)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x0b17"]
+texture = ExtResource("3_wh05l")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lknnk"]
+texture = ExtResource("4_3utnw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_854qa"]
+texture = ExtResource("4_3utnw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cv012"]
+texture = ExtResource("4_3utnw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_23f1w"]
+texture = ExtResource("4_3utnw")
+modulate_color = Color(1, 1, 1, 0.392157)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wi1hn"]
+texture = ExtResource("4_3utnw")
+
+[node name="RockPaperScissors" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qj3ve")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="RockButton" type="Button" parent="Background"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.104
+anchor_top = 0.361
+anchor_right = 0.26
+anchor_bottom = 0.639
+offset_left = 0.319992
+offset_top = 0.119965
+offset_right = 0.799957
+offset_bottom = -0.120056
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_5tlcg")
+theme_override_styles/hover = SubResource("StyleBoxTexture_s30n7")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mtl0m")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_5hp2d")
+theme_override_styles/focus = SubResource("StyleBoxTexture_av5rw")
+
+[node name="RockLabel" type="Label" parent="Background/RockButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.713
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 63.1
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.784314, 0.901961, 0.784314, 1)
+theme_override_font_sizes/font_size = 60
+text = "Rock"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PaperButton" type="Button" parent="Background"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.422
+anchor_top = 0.556
+anchor_right = 0.578
+anchor_bottom = 0.833
+offset_left = -0.240051
+offset_top = -0.480042
+offset_right = 0.23999
+offset_bottom = 0.359924
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_alcn5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_bkn4e")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_12hmm")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_utvso")
+theme_override_styles/focus = SubResource("StyleBoxTexture_x0b17")
+
+[node name="PaperLabel" type="Label" parent="Background/PaperButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.713
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 63.1
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.784314, 0.901961, 0.784314, 1)
+theme_override_font_sizes/font_size = 60
+text = "Paper"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScissorsButton" type="Button" parent="Background"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.74
+anchor_top = 0.361
+anchor_right = 0.896
+anchor_bottom = 0.639
+offset_left = -0.800049
+offset_top = 0.119965
+offset_right = -0.320068
+offset_bottom = -0.120056
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_lknnk")
+theme_override_styles/hover = SubResource("StyleBoxTexture_854qa")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_cv012")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_23f1w")
+theme_override_styles/focus = SubResource("StyleBoxTexture_wi1hn")
+
+[node name="ScissorsLabel" type="Label" parent="Background/ScissorsButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.713
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 63.1
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.784314, 0.901961, 0.784314, 1)
+theme_override_font_sizes/font_size = 60
+text = "Scissors"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NextTurnTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="pressed" from="Background/RockButton" to="." method="_on_rock_button_pressed"]
+[connection signal="pressed" from="Background/PaperButton" to="." method="_on_paper_button_pressed"]
+[connection signal="pressed" from="Background/ScissorsButton" to="." method="_on_scissors_button_pressed"]
+[connection signal="timeout" from="NextTurnTimer" to="." method="_on_next_turn_timer_timeout"]

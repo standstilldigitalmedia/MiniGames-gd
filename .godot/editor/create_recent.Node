@@ -1,11 +1,11 @@
 Timer
-LineEdit
-Button
-TextureRect
 Label
+Button
 PanelContainer
-VBoxContainer
 ColorRect
+LineEdit
+TextureRect
+VBoxContainer
 Panel
 BoxContainer
 Control

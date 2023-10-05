@@ -6,7 +6,7 @@ var player_2_guess = 0
 var rng: RandomNumberGenerator
 
 func _ready():
-	overlay_scene = GlobalManager.create_overlay("Flip A Coin")
+	overlay_scene = GlobalManager.create_overlay("Pick A Number")
 	add_child(overlay_scene)
 	rng = GlobalManager.init_random_rng()
 

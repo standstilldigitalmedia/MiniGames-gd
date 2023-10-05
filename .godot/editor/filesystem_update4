@@ -1,9 +1,5 @@
-res://Autoload/config_manager.gd
-res://FlipACoin/flip_a_coin.gd
-res://Autoload/global_manager.gd
 res://UI/Scenes/my_button.tscn
 res://UI/Themes/my_button_theme.tres
-res://GamePicker/game_picker.gd
 res://GamePicker/game_picker.tscn
 res://MyConfirmBox/my_confirm_box.tscn
 res://Welcome/welcome.tscn
@@ -12,6 +8,6 @@ res://OverlayPanel/overlay_panel.tscn
 res://FlipACoin/flip_a_coin.tscn
 res://WinScene/win_scene.tscn
 res://PickANumber/pick_a_number.tscn
-res://WinScene/win_scene.gd
-res://OverlayPanel/overlay_panel.gd
+res://RockPaperScissors/rock_paper_scissors.tscn
 res://PickANumber/pick_a_number.gd
+res://RockPaperScissors/rock_paper_scissors.gd
