@@ -18,6 +18,9 @@ func get_player_2():
 func set_current_player(current_player):
 	$CurrentPlayerContainer/CurrentPlayerNameLabel.set_text(current_player)
 	
+func get_current_player_name():
+	return $CurrentPlayerContainer/CurrentPlayerNameLabel.get_text()
+	
 func get_current_player():
 	if $Player1Container/PlayerName.get_text() == $CurrentPlayerContainer/CurrentPlayerNameLabel.get_text():
 		return 1

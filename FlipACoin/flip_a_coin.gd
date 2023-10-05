@@ -6,11 +6,9 @@ var stopping = false
 var choice: String
 var rng: RandomNumberGenerator
 
-func player_wins(player_name):
-	var win_scene_resource = load(ConfigManager.WIN_SCENE_PATH)
-	var win_scene = win_scene_resource.instantiate()
-	win_scene.set_win_label(player_name)
-	add_child(win_scene)
+func buttons_disabled(en):
+	$HeadsButton.set_disabled(en)
+	$TailsButton.set_disabled(en)
 	
 func _on_flipping_timer_timeout():
 	if flipping:
@@ -45,8 +43,7 @@ func _on_slow_down_timer_timeout():
 		
 func on_button_press():
 	stopping = true
-	$HeadsButton.set_disabled(true)
-	$TailsButton.set_disabled(true)
+	buttons_disabled(true)
 	$SlowDownTimer.start()
 
 func _on_heads_button_pressed():
@@ -60,21 +57,17 @@ func _on_tails_button_pressed():
 	on_button_press()
 
 func _on_next_turn_timer_timeout():
-	var winner = overlay_scene.check_for_winner()
-	if  winner != "":
-		player_wins(winner)
+	var winner = GlobalManager.get_win_scene(overlay_scene)
+	if winner != null:
+		add_child(winner)
 	overlay_scene.switch_current_player()
-	$HeadsButton.set_disabled(false)
-	$TailsButton.set_disabled(false)
+	buttons_disabled(false)
 	$FlippingTimer.wait_time = 0.3
 	$FlippingTimer.start()
 	flipping = true
 
 func _ready():
-	rng = RandomNumberGenerator.new()
-	rng.seed = hash(Time.get_datetime_string_from_system())
-	var overlay_resource = load(ConfigManager.OVERLAY_SCENE_PATH)
-	overlay_scene = overlay_resource.instantiate()
-	overlay_scene.set_title_text("Flip A Coin")
+	rng = GlobalManager.init_random_rng()
+	overlay_scene = GlobalManager.create_overlay("Flip A Coin")
 	add_child(overlay_scene)
 	$Background/FlippingCoin/Tails.hide()

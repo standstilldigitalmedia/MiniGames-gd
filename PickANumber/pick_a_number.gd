@@ -5,19 +5,10 @@ var player_1_guess = 0
 var player_2_guess = 0
 var rng: RandomNumberGenerator
 
-func player_wins(player_name):
-	var win_scene_resource = load(ConfigManager.WIN_SCENE_PATH)
-	var win_scene = win_scene_resource.instantiate()
-	win_scene.set_win_label(player_name)
-	add_child(win_scene)
-
 func _ready():
-	var overlay_resource = load(ConfigManager.OVERLAY_SCENE_PATH)
-	overlay_scene = overlay_resource.instantiate()
-	overlay_scene.set_title_text("Flip A Coin")
+	overlay_scene = GlobalManager.create_overlay("Flip A Coin")
 	add_child(overlay_scene)
-	rng = RandomNumberGenerator.new()
-	rng.seed = hash(Time.get_datetime_string_from_system())
+	rng = GlobalManager.init_random_rng()
 
 func _on_submit_button_pressed():
 	$Background/ControlContainer/SubmitButton.disabled = true
@@ -57,9 +48,9 @@ func _on_next_turn_timer_timeout():
 		player_1_guess = 0
 		player_2_guess = 0
 			
-	var winner = overlay_scene.check_for_winner()
-	if  winner != "":
-		player_wins(winner)
+	var winner = GlobalManager.get_win_scene(overlay_scene)
+	if  winner != null:
+		add_child(winner)
 	
 	overlay_scene.switch_current_player()
 	$Background/ControlContainer/SubmitButton.disabled = false

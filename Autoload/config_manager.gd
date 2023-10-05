@@ -1,6 +1,7 @@
 extends Node
 
 var config: ConfigFile
+
 const CONFIG_PATH = "user://mini_games.cfg"
 const CONFIG_SECTION = "mini_games"
 const CONFIG_PLAYER_NAMES = "player_names"
