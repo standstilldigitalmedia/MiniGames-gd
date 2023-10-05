@@ -162,17 +162,17 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_nopif")
 
-[node name="Timer1" type="Timer" parent="."]
+[node name="InitialWaitTimer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
 
-[node name="Timer2" type="Timer" parent="."]
+[node name="DecreaseSpeedTimer" type="Timer" parent="."]
 wait_time = 0.5
 
-[node name="Timer3" type="Timer" parent="."]
+[node name="ChangeSceneTimer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
 
-[connection signal="timeout" from="Timer1" to="." method="_on_timer_1_timeout"]
-[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
-[connection signal="timeout" from="Timer3" to="." method="_on_timer_3_timeout"]
+[connection signal="timeout" from="InitialWaitTimer" to="." method="_on_initial_wait_timer_timeout"]
+[connection signal="timeout" from="DecreaseSpeedTimer" to="." method="_on_decrease_speed_timer_timeout"]
+[connection signal="timeout" from="ChangeSceneTimer" to="." method="_on_change_scene_timer_timeout"]

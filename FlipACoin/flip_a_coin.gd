@@ -2,7 +2,9 @@ extends Control
 
 var overlay_scene: Node
 var flipping = true
-var choice : String
+var stopping = false
+var choice: String
+var rng: RandomNumberGenerator
 
 func player_wins(player_name):
 	var win_scene_resource = load(ConfigManager.WIN_SCENE_PATH)
@@ -18,6 +20,8 @@ func _on_flipping_timer_timeout():
 		else:
 			$Background/FlippingCoin/Tails.show()
 			$Background/FlippingCoin/Heads.hide()
+		if !stopping:	
+			$FlippingTimer.wait_time = rng.randf_range(0.15, 0.6)
 			
 func _on_slow_down_timer_timeout():
 	$FlippingTimer.wait_time += 0.1
@@ -38,20 +42,22 @@ func _on_slow_down_timer_timeout():
 				else:
 					overlay_scene.increase_player_2_score()
 		$NextTurnTimer.start()
+		
+func on_button_press():
+	stopping = true
+	$HeadsButton.set_disabled(true)
+	$TailsButton.set_disabled(true)
+	$SlowDownTimer.start()
 
 func _on_heads_button_pressed():
 	$HeadsButton.release_focus()
-	$HeadsButton.set_disabled(true)
-	$TailsButton.set_disabled(true)
 	choice = "heads"
-	$SlowDownTimer.start()
+	on_button_press()
 
 func _on_tails_button_pressed():
 	$TailsButton.release_focus()
-	$HeadsButton.set_disabled(true)
-	$TailsButton.set_disabled(true)
 	choice = "tails"
-	$SlowDownTimer.start()
+	on_button_press()
 
 func _on_next_turn_timer_timeout():
 	var winner = overlay_scene.check_for_winner()
@@ -65,7 +71,8 @@ func _on_next_turn_timer_timeout():
 	flipping = true
 
 func _ready():
-	ConfigManager.read_config()
+	rng = RandomNumberGenerator.new()
+	rng.seed = hash(Time.get_datetime_string_from_system())
 	var overlay_resource = load(ConfigManager.OVERLAY_SCENE_PATH)
 	overlay_scene = overlay_resource.instantiate()
 	overlay_scene.set_title_text("Flip A Coin")

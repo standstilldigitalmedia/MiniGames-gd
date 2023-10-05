@@ -32,7 +32,7 @@ func get_end_y(rando):
 
 func check_for_stop():
 	if speed < 500:
-		$Timer2.stop()
+		$DecreaseSpeedTimer.stop()
 		var rng = RandomNumberGenerator.new()
 		rng.seed = hash(Time.get_datetime_string_from_system())
 		var rando = 53 #rng.randf_range(1.0, 100.0)
@@ -43,18 +43,6 @@ func check_for_stop():
 func decrease_speed():
 	speed -= 100
 
-func _on_timer_1_timeout():
-	decrease_speed()
-	$Timer2.start()
-
-func _on_timer_2_timeout():
-	decrease_speed()
-	check_for_stop()
-	
-func _on_timer_3_timeout():
-	print("changing scene now")
-	get_tree().change_scene_to_file(game_path)
-	
 func _process(delta):
 	if moving:
 		var step = speed * delta
@@ -64,8 +52,7 @@ func _process(delta):
 		if panel_1_pos.y <= final_position.y + 5 and panel_1_pos.y >= final_position.y - 5:
 			moving = false
 			stopping = false
-			$Timer3.start()
-			print("timer3 started")
+			$ChangeSceneTimer.start()
 		
 	if panel_1_pos.y - panel_2_pos.y > 400:
 		panel_2_pos.y = panel_1_pos.y - 400
@@ -82,11 +69,20 @@ func _process(delta):
 	$Background/Mask/GameSelectPanel1.position = panel_1_pos
 	$Background/Mask/GameSelectPanel2.position = panel_2_pos 	
 	
-	
 func _ready():
-	$Timer1.start()
+	$InitialWaitTimer.start()
 
 func _on_game_select_panel_1_stopped():
 	$Background/Mask/GameSelectPanel2.moving = false
 
-	
+
+func _on_initial_wait_timer_timeout():
+	decrease_speed()
+	$DecreaseSpeedTimer.start()
+
+func _on_decrease_speed_timer_timeout():
+	decrease_speed()
+	check_for_stop()
+
+func _on_change_scene_timer_timeout():
+	get_tree().change_scene_to_file(game_path)
