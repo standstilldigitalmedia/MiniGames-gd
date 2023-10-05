@@ -1,0 +1,87 @@
+[gd_scene load_steps=6 format=3 uid="uid://b6cd7soqgbad"]
+
+[ext_resource type="Script" path="res://PickANumber/pick_a_number.gd" id="1_1yp4f"]
+[ext_resource type="Texture2D" uid="uid://7c3q281nivw1" path="res://UI/Images/text_input.png" id="2_44vcn"]
+[ext_resource type="Theme" uid="uid://tw82dxw8fdl8" path="res://UI/Themes/my_line_edit_theme.tres" id="3_dimeg"]
+[ext_resource type="Theme" uid="uid://coulpdn6akys8" path="res://UI/Themes/my_button_theme.tres" id="4_nhn8h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s7jbj"]
+
+[node name="PickANumber" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1yp4f")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ControlContainer" type="PanelContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.344
+anchor_top = 0.352
+anchor_right = 0.656
+anchor_bottom = 0.815
+offset_left = -0.480042
+offset_top = -0.160034
+offset_right = 0.47998
+offset_bottom = -0.200073
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_s7jbj")
+
+[node name="TitleLabel" type="Label" parent="Background/ControlContainer"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 45
+text = "Enter a number between 1 and 100"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="TextEditBackground" type="TextureRect" parent="Background/ControlContainer"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_44vcn")
+stretch_mode = 3
+
+[node name="NumberTextEdit" type="LineEdit" parent="Background/ControlContainer/TextEditBackground"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.047
+anchor_top = 0.16
+anchor_right = 0.955
+anchor_bottom = 0.82
+offset_left = 0.199999
+offset_right = -3.05176e-05
+theme = ExtResource("3_dimeg")
+
+[node name="SubmitButton" type="Button" parent="Background/ControlContainer"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("4_nhn8h")
+text = "Submit Guess"
+
+[node name="NextTurnTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="pressed" from="Background/ControlContainer/SubmitButton" to="." method="_on_submit_button_pressed"]
+[connection signal="timeout" from="NextTurnTimer" to="." method="_on_next_turn_timer_timeout"]

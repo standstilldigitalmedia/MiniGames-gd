@@ -1,5 +1,6 @@
-res://WinScene
 res://UI/Themes
+res://PickANumber
+res://WinScene
 res://FlipACoin
 res://OverlayPanel
 res://GamePicker
