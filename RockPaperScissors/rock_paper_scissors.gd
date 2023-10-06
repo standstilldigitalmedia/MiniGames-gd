@@ -20,7 +20,6 @@ func set_throw(throw):
 		player_2_throw = throw
 	
 func _ready():
-	ConfigManager.read_config()
 	overlay_scene = GlobalManager.create_overlay("Rock, Paper, Scissors")
 	add_child(overlay_scene)
 
@@ -42,9 +41,7 @@ func _on_scissors_button_pressed():
 	$Background/ScissorsButton.release_focus()
 	
 func create_tie_box():
-	var confirm_box_scene = load(ConfigManager.CONFIRM_BOX_SCENE_PATH)
-	var confirm_box = confirm_box_scene.instantiate()
-	confirm_box.set_confirm_box("TIE!","It was a tie. Go again.","Ok", "Cancel")
+	var confirm_box = GlobalManager.create_confirm_box("TIE!","It was a tie. Go again.","Ok", "Cancel")
 	add_child(confirm_box)
 
 func _on_next_turn_timer_timeout():

@@ -1,0 +1,22 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://6rqoek4ojwwq"]
+
+[ext_resource type="Texture2D" uid="uid://dvxny5027ihpc" path="res://TicTacToe/Images/x.png" id="1_lkm1f"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_camgj"]
+texture = ExtResource("1_lkm1f")
+modulate_color = Color(1, 1, 1, 0.392157)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2yolh"]
+texture = ExtResource("1_lkm1f")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1mqgn"]
+texture = ExtResource("1_lkm1f")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bsrid"]
+texture = ExtResource("1_lkm1f")
+
+[resource]
+Button/styles/disabled = SubResource("StyleBoxTexture_camgj")
+Button/styles/focus = SubResource("StyleBoxTexture_2yolh")
+Button/styles/hover = SubResource("StyleBoxTexture_1mqgn")
+Button/styles/normal = SubResource("StyleBoxTexture_bsrid")

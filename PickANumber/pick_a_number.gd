@@ -41,9 +41,7 @@ func _on_next_turn_timer_timeout():
 		elif player_2_score < player_1_score:
 			overlay_scene.increase_player_2_score()
 		else:
-			var confirm_box_scene = load(ConfigManager.CONFIRM_BOX_SCENE_PATH)
-			var confirm_box = confirm_box_scene.instantiate()
-			confirm_box.set_confirm_box("TIE!","It was a tie. Go again.","Ok", "Cancel")
+			var confirm_box = GlobalManager.create_confirm_box("TIE!","It was a tie. Go again.","Ok", "Cancel")
 			add_child(confirm_box)
 		player_1_guess = 0
 		player_2_guess = 0

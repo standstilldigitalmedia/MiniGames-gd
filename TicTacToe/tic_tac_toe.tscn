@@ -1,0 +1,108 @@
+[gd_scene load_steps=7 format=3 uid="uid://b3e6bv3vqr63d"]
+
+[ext_resource type="Script" path="res://TicTacToe/tic_tac_toe.gd" id="1_kkioe"]
+[ext_resource type="Texture2D" uid="uid://3fhunbm8kc6b" path="res://TicTacToe/Images/grid.png" id="2_qc07d"]
+[ext_resource type="Texture2D" uid="uid://bnnqqex4l7mh" path="res://TicTacToe/Images/o.png" id="3_13xwu"]
+[ext_resource type="Theme" uid="uid://6rqoek4ojwwq" path="res://TicTacToe/Themes/x_button_theme.tres" id="3_ijwv1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1m48h"]
+texture = ExtResource("3_13xwu")
+modulate_color = Color(1, 1, 1, 0)
+
+[sub_resource type="Theme" id="Theme_0y2wt"]
+Button/styles/disabled = SubResource("StyleBoxTexture_1m48h")
+
+[node name="TicTacToe" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kkioe")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BackgroundContainerRect" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -140.0
+offset_right = 250.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_qc07d")
+
+[node name="GridContainer" type="GridContainer" parent="Background/BackgroundContainerRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 24
+theme_override_constants/v_separation = 24
+columns = 3
+
+[node name="Button00" type="Button" parent="Background/BackgroundContainerRect/GridContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme = SubResource("Theme_0y2wt")
+
+[node name="Button10" type="Button" parent="Background/BackgroundContainerRect/GridContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme = ExtResource("3_ijwv1")
+
+[node name="Button20" type="Button" parent="Background/BackgroundContainerRect/GridContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme = ExtResource("3_ijwv1")
+
+[node name="Button01" type="Button" parent="Background/BackgroundContainerRect/GridContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme = ExtResource("3_ijwv1")
+
+[node name="Button11" type="Button" parent="Background/BackgroundContainerRect/GridContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme = ExtResource("3_ijwv1")
+
+[node name="Button21" type="Button" parent="Background/BackgroundContainerRect/GridContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme = ExtResource("3_ijwv1")
+
+[node name="Button02" type="Button" parent="Background/BackgroundContainerRect/GridContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme = ExtResource("3_ijwv1")
+
+[node name="Button12" type="Button" parent="Background/BackgroundContainerRect/GridContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme = ExtResource("3_ijwv1")
+
+[node name="Button22" type="Button" parent="Background/BackgroundContainerRect/GridContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme = ExtResource("3_ijwv1")
+
+[node name="NextTurnTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="NextTurnTimer" to="." method="_on_next_turn_timer_timeout"]

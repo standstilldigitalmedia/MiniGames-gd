@@ -27,9 +27,7 @@ func remove_name(name_to_remove):
 	enable_begin_button()
 			
 func confirm_remove_name(name_to_remove):
-	var confirm_box_scene = load(ConfigManager.CONFIRM_BOX_SCENE_PATH)
-	var confirm_box = confirm_box_scene.instantiate()
-	confirm_box.set_confirm_box("Delete " + name_to_remove + "?","Are you sure you want to delete " + name_to_remove + "?","Yes", "No")
+	var confirm_box = GlobalManager.create_confirm_box("Delete " + name_to_remove + "?","Are you sure you want to delete " + name_to_remove + "?","Yes", "No")
 	confirm_box.button1.connect(remove_name.bind(name_to_remove))
 	add_child(confirm_box)
 	
