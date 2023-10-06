@@ -104,6 +104,6 @@ func _on_next_turn_timer_timeout():
 	check_for_win()
 	overlay_scene.switch_current_player()
 	disable_all(false)
-	var winner = GlobalManager.get_win_scene(overlay_scene)
-	if  winner != null:
+	var winner = overlay_scene.check_for_winner()
+	if winner != null:
 		add_child(winner)

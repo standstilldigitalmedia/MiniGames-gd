@@ -31,8 +31,14 @@ func check_for_winner():
 		winner = get_player_1()
 	elif int($Player2Container/PlayerScore.get_text()) > 1:
 		winner = get_player_2()
-	
-	return winner
+		
+	if  winner != "":
+		var win_scene_resource = load(ConfigManager.WIN_SCENE_PATH)
+		var win_scene = win_scene_resource.instantiate()
+		win_scene.set_win_label(winner)
+		ConfigManager.next_turn()
+		return win_scene
+	return null
 	
 func increase_player_1_score():
 	var score = int($Player1Container/PlayerScore.get_text())

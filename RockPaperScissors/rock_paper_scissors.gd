@@ -67,8 +67,8 @@ func _on_next_turn_timer_timeout():
 				overlay_scene.increase_player_1_score()
 			elif player_2_throw == "scissors":
 				create_tie_box()
-		var winner = GlobalManager.get_win_scene(overlay_scene)
-		if  winner != null:
+		var winner = overlay_scene.check_for_winner()
+		if winner != null:
 			add_child(winner)
 		reset_throws()
 	disable_buttons(false)

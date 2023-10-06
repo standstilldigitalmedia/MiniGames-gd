@@ -34,7 +34,7 @@ func check_for_stop():
 	if speed < 500:
 		$DecreaseSpeedTimer.stop()
 		var rng = GlobalManager.init_random_rng()
-		var rando = rng.randf_range(1.0, 100.0)
+		var rando = 10 #rng.randf_range(1.0, 100.0)
 		stopping = true
 		final_position = Vector2(0, get_end_y(rando))
 		get_game_path(rando)

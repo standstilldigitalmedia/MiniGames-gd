@@ -1,6 +1,7 @@
-res://UI/Scenes/my_button.tscn
+res://TicTacToe/tic_tac_toe.tscn
 res://UI/Themes/my_button_theme.tres
 res://TicTacToe/Themes/x_button_theme.tres
+res://UI/Scenes/my_button.tscn
 res://GamePicker/game_picker.tscn
 res://MyConfirmBox/my_confirm_box.tscn
 res://Welcome/welcome.tscn
@@ -10,11 +11,11 @@ res://FlipACoin/flip_a_coin.tscn
 res://WinScene/win_scene.tscn
 res://PickANumber/pick_a_number.tscn
 res://RockPaperScissors/rock_paper_scissors.tscn
-res://TicTacToe/tic_tac_toe.tscn
-res://TicTacToe/tic_tac_toe.gd
-res://TicTacToe/Themes/o_button_theme.tres
+res://FlipACoin/flip_a_coin.gd
 res://Autoload/global_manager.gd
+res://OverlayPanel/overlay_panel.gd
 res://PickANumber/pick_a_number.gd
 res://RockPaperScissors/rock_paper_scissors.gd
-res://Welcome/welcome.gd
+res://TicTacToe/tic_tac_toe.gd
 res://GamePicker/game_picker.gd
+res://Autoload/config_manager.gd

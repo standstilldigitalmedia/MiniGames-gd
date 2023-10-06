@@ -57,7 +57,7 @@ func _on_tails_button_pressed():
 	on_button_press()
 
 func _on_next_turn_timer_timeout():
-	var winner = GlobalManager.get_win_scene(overlay_scene)
+	var winner = overlay_scene.check_for_winner()
 	if winner != null:
 		add_child(winner)
 	overlay_scene.switch_current_player()

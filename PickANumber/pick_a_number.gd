@@ -46,8 +46,8 @@ func _on_next_turn_timer_timeout():
 		player_1_guess = 0
 		player_2_guess = 0
 			
-	var winner = GlobalManager.get_win_scene(overlay_scene)
-	if  winner != null:
+	var winner = overlay_scene.check_for_winner()
+	if winner != null:
 		add_child(winner)
 	
 	overlay_scene.switch_current_player()

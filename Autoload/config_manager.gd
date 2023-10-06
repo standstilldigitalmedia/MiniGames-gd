@@ -56,13 +56,10 @@ func get_player_2():
 	for i in names_array.size():
 		if names_array[i] == player1:
 			var next = i + 1
-			if next > names_array.size():
+			if next > names_array.size() -1:
 				next = 0;
 			player2 = names_array[next]
 	return player2
-			
-func next_turn():
-	config.set_value(CONFIG_SECTION, CONFIG_CURRENT_PLAYER, get_player_2())
 	
 func get_next_time():
 	return config.get_value(CONFIG_SECTION, CONFIG_NEXT_TIME)
@@ -82,6 +79,10 @@ func read_config():
 		config.set_value(CONFIG_SECTION, CONFIG_PLAYER_NAMES, "")
 		config.set_value(CONFIG_SECTION, CONFIG_NEXT_TIME, false)
 		config.set_value(CONFIG_SECTION, CONFIG_CURRENT_PLAYER, "")
+		
+func next_turn():
+	config.set_value(CONFIG_SECTION, CONFIG_CURRENT_PLAYER, get_player_2())
+	write_config()
 
 func add_name_to_config(name_to_add):
 	var names_string = config.get_value(CONFIG_SECTION, CONFIG_PLAYER_NAMES)
